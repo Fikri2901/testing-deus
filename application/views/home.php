@@ -49,12 +49,12 @@
             </tbody>
             <tfoot>
                 <tr>
-                    <th>No</th>
-                    <th>Nama</th>
-                    <th>alamat</th>
-                    <th>tanggal lahir</th>
-                    <th>status</th>
-                    <th>Aksi</th>
+                    <tfoot>No</tfoot>
+                    <tfoot>Nama</tfoot>
+                    <tfoot>alamat</tfoot>
+                    <tfoot>tanggal lahir</tfoot>
+                    <tfoot>status</tfoot>
+                    <tfoot>Aksi</tfoot>
                 </tr>
             </tfoot>
         </table>

@@ -16,10 +16,6 @@
             buttons: [
                 'copy', 'csv', 'excel', 'pdf', 'print'
             ],
-        fixedHeader: {
-            header: false,
-            footer: true
-        },
         }, 
         );
     } );

@@ -63,11 +63,11 @@ class Home extends CI_Controller {
 
       if ($this->form_validation->run() == FALSE) {
         $data['type'] = $this->CustomerModel->getType();
-
         $this->load->view('template/header');
 		$this->load->view('view_edit',$data);
         $this->load->view('template/footer');
-      } else {
+    } else {
+        $this->session->set_flashdata('sukses', $data['customer']['nama'].' berhasil diupdate !!');
         $this->CustomerModel->edit($id);
         redirect('/','refresh');
       }
@@ -87,12 +87,11 @@ class Home extends CI_Controller {
 
       if ($this->form_validation->run() == FALSE) {
         $data['type'] = $this->CustomerModel->getType();
-
         $this->load->view('template/header');
 		$this->load->view('view_add', $data);
         $this->load->view('template/footer');
-      } else {
-        # code...
+    } else {
+        $this->session->set_flashdata('sukses', 'Data berhasil ditambahkan !!');
         $this->CustomerModel->add();
         redirect('/','refresh');
       }

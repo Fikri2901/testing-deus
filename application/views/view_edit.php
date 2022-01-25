@@ -32,12 +32,17 @@
             <input type="date" class="form-control" id="tanggal" name="tanggal_lahir" value="<?= $customer['tanggal_lahir'] ?>">
         </div>
         <div class="mb-3">
-            <label for="longitude" class="form-label">Longitude</label>
-            <input type="text" class="form-control" id="longitude" aria-describedby="longitude" name="longitude" value="<?= $customer['longitude'] ?>">
-        </div>
-        <div class="mb-3">
-            <label for="latitude" class="form-label">Latitude</label>
-            <input type="text" class="form-control" id="latitude" aria-describedby="latitude" name="latitude" value="<?= $customer['latitude'] ?>">
+        <div class="row mb-3">
+                <div class="col">
+                    <label for="latitude" class="form-label">Latitude</label>
+                    <input type="number" class="form-control" aria-label="Latitude" name="latitude" id="latitude" readonly>
+                </div>
+                <div class="col">
+                    <label for="longitude" class="form-label">Longitude</label>
+                    <input type="number" class="form-control" aria-label="Longitude" name="longitude" id="longitude" readonly>
+                </div>
+            </div>
+            <div id="map_canvas" style="width:100%; height:350px"></div>
         </div>
         <div class="mb-3">
             <div class="form-check">

@@ -9,8 +9,76 @@
  
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
     <title>Test Deus</title>
+
+    <script>
+        function initialize_map()
+        {
+            var myOptions = {
+                zoom: 4,
+                mapTypeControl: true,
+                mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
+                navigationControl: true,
+                navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
+                mapTypeId: google.maps.MapTypeId.ROADMAP      
+                }	
+            map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+        }
+        function initialize()
+        {
+            if(geo_position_js.init())
+            {
+                document.getElementById('latitude').value="Receiving...";
+                geo_position_js.getCurrentPosition(show_position,function(){document.getElementById('latitude').value="Couldn't get location"},{enableHighAccuracy:true});
+                
+                document.getElementById('longitude').value="Receiving...";
+                geo_position_js.getCurrentPosition(show_position,function(){document.getElementById('longitude').value="Couldn't get location"},{enableHighAccuracy:true});
+            }
+            else
+            {
+                document.getElementById('latitude').value="Functionality not available";
+                document.getElementById('longitude').value="Functionality not available";
+            }
+        }
+
+        function show_position(p)
+        {
+            document.getElementById('latitude').value=p.coords.latitude.toFixed(2);
+            document.getElementById('longitude').value=p.coords.longitude.toFixed(2);
+
+            var pos=new google.maps.LatLng(p.coords.latitude,p.coords.longitude);
+            map.setCenter(pos);
+            map.setZoom(14);
+
+            var infowindow = new google.maps.InfoWindow({
+                content: "<strong>Oke</strong>"
+            });
+
+            var marker = new google.maps.Marker({
+                position: pos,
+                map: map,
+                title:"You are here"
+            });
+
+            google.maps.event.addListener(marker, 'click', function() {
+            infowindow.open(map,marker);
+            });
+            
+        }
+</script>
+
+    <script src="<?= base_url() ?>/assets/js/geo.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
+    <style type="css">
+      tfoot input {
+        width: 100%;
+        padding: 3px;
+        box-sizing: border-box;
+    }
+    </style>
+
   </head>
-  <body>
+  <body onload="initialize_map();initialize()">
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
