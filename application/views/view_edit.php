@@ -1,5 +1,13 @@
-<div class="container">
-    <form>
+<div class="container mt-5">
+
+        <?php if(validation_errors()): ?>  
+          <div class="alert alert-danger" role="alert">
+            <?= validation_errors() ?>
+          </div>
+        <?php endif; ?>
+
+    <form method="post" action="<?= base_url() ?>index.php/Home/update">
+    <input type="hidden" value="<?= $customer['id'] ?>" name="id">
         <div class="mb-3">
             <label for="nama" class="form-label">Nama</label>
             <input type="text" class="form-control" id="nama" aria-describedby="Nama" name="nama" value="<?= $customer['nama'] ?>" >
@@ -7,10 +15,12 @@
         <div class="mb-3">
             <label for="jenis" class="form-label">Jenis</label>
             <select class="form-select" id="jenis" name="jenis">
-                <option value="<?= $customer['id_m_customer'] ?>"> <?= $customer['id_m_customer'] ?> </option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                <option value="<?= $namatype['id'] ?>" hidden> <?= $namatype['nama'] ?> </option>
+                <?php
+                    foreach($type as $t) : 
+                ?>
+                <option value="<?= $t['id'] ?>"><?= $t['nama'] ?></option>
+                <?php endforeach ?>
             </select>
         </div>
         <div class="mb-3">
@@ -19,7 +29,7 @@
         </div>
         <div class="mb-3">
             <label for="tanggal" class="form-label">Tanggal</label>
-            <input type="date" class="form-control" id="tanggal" value="<?= $customer['tanggal_lahir'] ?>">
+            <input type="date" class="form-control" id="tanggal" name="tanggal_lahir" value="<?= $customer['tanggal_lahir'] ?>">
         </div>
         <div class="mb-3">
             <label for="longitude" class="form-label">Longitude</label>

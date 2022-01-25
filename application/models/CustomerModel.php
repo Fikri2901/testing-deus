@@ -16,7 +16,11 @@ class CustomerModel extends CI_Model
 
     public function getCustomerById($id){
         return $this->db->get_where('customer',array('id'=>$id))->row_array();
-      }
+    }
+
+    public function getJenisById($id){
+        return $this->db->get_where('m_customer_type',array('id'=>$id))->row_array();
+    }
 
     public function add()
     {
@@ -47,5 +51,11 @@ class CustomerModel extends CI_Model
 
         $this->db->where('id', $id);
         $this->db->update('customer', $data);
+    }
+
+    public function delete($id)
+    {
+        $this->db->where('id',$id);
+        $this->db->delete('customer');
     }
 }
