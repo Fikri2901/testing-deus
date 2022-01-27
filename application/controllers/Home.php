@@ -12,19 +12,11 @@ class Home extends CI_Controller {
 	public function index()
 	{
         $data['customer'] = $this->CustomerModel->getCustomer();
-
+        $data['type'] = $this->CustomerModel->getType();
         $this->load->view('template/header');
 		$this->load->view('home',$data);
         $this->load->view('template/footer');
 	}
-
-    public function add()
-    {
-        $data['type'] = $this->CustomerModel->getType();
-        $this->load->view('template/header');
-		$this->load->view('view_add', $data);
-        $this->load->view('template/footer');
-    }
 
     public function show($id)
     {
@@ -86,9 +78,10 @@ class Home extends CI_Controller {
         $this->form_validation->set_rules('status', 'Status', array('required'));
 
       if ($this->form_validation->run() == FALSE) {
+        $data['customer'] = $this->CustomerModel->getCustomer();
         $data['type'] = $this->CustomerModel->getType();
         $this->load->view('template/header');
-		$this->load->view('view_add', $data);
+		$this->load->view('home', $data);
         $this->load->view('template/footer');
     } else {
         $this->session->set_flashdata('sukses', 'Data berhasil ditambahkan !!');

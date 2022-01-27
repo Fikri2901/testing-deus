@@ -12,7 +12,8 @@
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
 	<link rel="stylesheet" type="text/css"
 		href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css">
-	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
+	<link rel="stylesheet" type="text/css"
+		href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
 
 	<title>Test Deus</title>
 
@@ -75,7 +76,6 @@
 			google.maps.event.addListener(marker, 'click', function () {
 				infowindow.open(map, marker);
 			});
-
 		}
 
 	</script>
@@ -93,13 +93,14 @@
 
 </head>
 
-<body onload="initialize_map();initialize()">
+<body onload="initialize_map();initialize(); initialize_map1();initialize1()">
 
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="#">Test</a>
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-				aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+				data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -111,8 +112,8 @@
 						<a class="nav-link" href="#">Link</a>
 					</li>
 					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-							aria-expanded="false">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+							data-bs-toggle="dropdown" aria-expanded="false">
 							Dropdown
 						</a>
 						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
