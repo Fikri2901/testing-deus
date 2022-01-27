@@ -10,7 +10,7 @@
 	</div>
 	<?php endif; ?>
 
-	<table id="myTable" class="display">
+	<table id="myTable" class="display" style="width: 100%;">
 		<thead>
 			<tr>
 				<th>No</th>
@@ -32,14 +32,16 @@
 				<td><?= $c['tanggal_lahir'] ?></td>
 				<td><?= $c['status'] ?></td>
 				<td>
-					<a href="<?= base_url(); ?>index.php/Home/delete/<?= $c['id'] ;?>" class="btn btn-danger"
-						onClick="return confirm('yakin mau hapus');">
+					<a href="<?= base_url(); ?>index.php/Home/delete/<?= $c['id'] ;?>"
+						class="badge rounded-pill bg-danger" onClick="return confirm('yakin mau hapus');">
 						Delete
 					</a>
-					<a href="<?= base_url(); ?>index.php/Home/edit/<?= $c['id'] ;?>" class="btn btn-success">
+					<a href="<?= base_url(); ?>index.php/Home/edit/<?= $c['id'] ;?>"
+						class="badge rounded-pill bg-success">
 						Edit
 					</a>
-					<a href="<?= base_url(); ?>index.php/Home/show/<?= $c['id'] ;?>" class="btn btn-primary">
+					<a href="<?= base_url(); ?>index.php/Home/show/<?= $c['id'] ;?>"
+						class="badge rounded-pill bg-primary">
 						View
 					</a>
 				</td>
@@ -48,12 +50,12 @@
 		</tbody>
 		<tfoot>
 			<tr>
-				<tfoot>No</tfoot>
-				<tfoot>Nama</tfoot>
-				<tfoot>alamat</tfoot>
-				<tfoot>tanggal lahir</tfoot>
-				<tfoot>status</tfoot>
-				<tfoot>Aksi</tfoot>
+				<td><b>No</b></td>
+				<th>Nama</th>
+				<td><b>Alamat</b></td>
+				<td><b>Tanggal lahir</b></td>
+				<td><b>Status</b></td>
+				<td><b>Aksi</b></td>
 			</tr>
 		</tfoot>
 	</table>

@@ -11,15 +11,37 @@
    <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
    <script>
    	$(document).ready(function () {
+   		$('#myTable tfoot th').each(function () {
+   			var title = $(this).text();
+   			$(this).html('<input type="text" style="width:100%;" placeholder="Search ' + title +
+   				'" />');
+   		});
    		$('#myTable').DataTable({
    			dom: 'Bfrtip',
    			buttons: [
-   				'copy', 'csv', 'excel', 'pdf', 'print'
+   				'pageLength', 'colvis', 'copy', 'csv', 'excel', 'pdf', 'print'
    			],
-   		}, );
+   			initComplete: function () {
+   				// Apply the search
+   				this.api().columns().every(function () {
+   					var that = this;
+
+   					$('input', this.footer()).on('keyup change clear', function () {
+   						if (that.search() !== this.value) {
+   							that
+   								.search(this.value)
+   								.draw();
+   						}
+   					});
+   				});
+   			}
+   		});
    	});
 
    </script>
+
+   <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+   <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.colVis.min.js"></script>
    </body>
 
    </html>
