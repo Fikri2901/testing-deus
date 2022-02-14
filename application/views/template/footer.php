@@ -19,7 +19,20 @@
    		$('#myTable').DataTable({
    			dom: 'Bfrtip',
    			buttons: [
-   				'pageLength', 'colvis', 'copy', 'csv', 'excel', 'pdf', 'print'
+   				'pageLength', 'colvis',
+   				{
+   					extend: 'collection',
+   					text: 'Export',
+   					buttons: [
+   						'copy', 'csv', 'excel', 'pdf', 'print'
+   					]
+   				},
+   				{
+   					text: 'Add data',
+   					action: function () {
+   						$('#add').modal('show');
+   					}
+   				}
    			],
    			initComplete: function () {
    				// Apply the search

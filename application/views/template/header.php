@@ -93,7 +93,7 @@
 
 </head>
 
-<body onload="initialize_map();initialize(); initialize_map1();initialize1()">
+<body onload="initialize_map();initialize();">
 
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 		<div class="container-fluid">
